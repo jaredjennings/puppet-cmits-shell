@@ -37,21 +37,21 @@ class shell::stig {
 # each shell. If you add a shell to the contents of \verb!/etc/shells! here,
 # you must add corresponding policy below.
     $valid_shells = $::osfamily ? {
-        'redhat' => "/bin/sh
+        'RedHat' => "/bin/sh
 /bin/bash
 /sbin/nologin
 /bin/tcsh
 /bin/csh
 /bin/zsh
 ",
-        'darwin' => "/bin/bash
+        'Darwin' => "/bin/bash
 /bin/csh
 /bin/ksh
 /bin/sh
 /bin/tcsh
 /bin/zsh
 ",
-        default  => unimplemented,
+        default  => fail("unimplemented on ${::osfamily}"),
     }
     file { "/etc/shells":
         ensure => present,
