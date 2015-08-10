@@ -19,7 +19,8 @@
 # \url{http://modules.sourceforge.net/}.
 
 class shell::env_modules($initial_modulepath) {
-    include "shell::env_modules::${::osfamily}"
+    $lower_osfamily = downcase($::osfamily)
+    include "shell::env_modules::${lower_osfamily}"
     shell::profile_d::sh_entry { 'before_modules':
         content => inline_template("export MODULEPATH=\
 <%= @initial_modulepath.join(':')%>
