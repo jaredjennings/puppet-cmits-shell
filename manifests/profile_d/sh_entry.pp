@@ -16,7 +16,7 @@
 define shell::profile_d::sh_entry($content) {
     include shell::profile_d
     file { "/etc/profile.d/${name}.sh":
-        owner => root, group => 0, mode => 0444,
+        owner => root, group => 0, mode => '0444',
         content => $content,
     }
 }

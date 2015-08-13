@@ -35,7 +35,7 @@ class shell::global_init_files {
     File {
         owner => $glif_owner,
         group => 0,
-        mode => 0444,
+        mode => '0444',
     }
     file {
         "/etc/profile.d":

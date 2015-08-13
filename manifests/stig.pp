@@ -18,7 +18,7 @@
 class shell::stig {
     File {
         ensure => present,
-        owner => root, group => 0, mode => 0644,
+        owner => root, group => 0, mode => '0644',
     }
 # \implements{unixsrg}{GEN001780}%
 # Don't let users \verb!write! each other, because ``messaging can be used to
@@ -55,7 +55,7 @@ class shell::stig {
     }
     file { "/etc/shells":
         ensure => present,
-        owner => root, group => 0, mode => 0644,
+        owner => root, group => 0, mode => '0644',
         content => $valid_shells,
     }
 
@@ -76,13 +76,13 @@ class shell::stig {
 # The STIGs say 0755, but we use 0555 here; it is more restrictive and
 # comports with default Mac configuration.
     file {
-        "/bin/sh": owner => root, group => 0, mode => 0555;
-        "/bin/bash": owner => root, group => 0, mode => 0555;
-        "/sbin/nologin": owner => root, group => 0, mode => 0555;
-        "/bin/tcsh": owner => root, group => 0, mode => 0555;
-        "/bin/csh": owner => root, group => 0, mode => 0555;
-        "/bin/ksh": owner => root, group => 0, mode => 0555;
-        "/bin/zsh": owner => root, group => 0, mode => 0555;
+        "/bin/sh": owner => root, group => 0, mode => '0555';
+        "/bin/bash": owner => root, group => 0, mode => '0555';
+        "/sbin/nologin": owner => root, group => 0, mode => '0555';
+        "/bin/tcsh": owner => root, group => 0, mode => '0555';
+        "/bin/csh": owner => root, group => 0, mode => '0555';
+        "/bin/ksh": owner => root, group => 0, mode => '0555';
+        "/bin/zsh": owner => root, group => 0, mode => '0555';
     }
 # \implements{macosxstig}{GEN002230 M6}%
 # \implements{unixsrg}{GEN002230}%
